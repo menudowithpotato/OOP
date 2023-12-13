@@ -16,6 +16,8 @@ ItemListener,ActionListener, ListSelectionListener{
     Font a1 = new Font("Times", Font.PLAIN, 12);
     JLabel label2 = new JLabel("Republic of the Philippines");
     Font a2 = new Font("Times", Font.PLAIN, 12);
+    JLabel labelSIS = new JLabel("Student Information System");
+    Font SIS = new Font("Arial", Font.BOLD, 18);
     JLabel label3 = new JLabel("Payment");
     Font a3 = new Font("Times", Font.PLAIN, 30);
     JLabel   labelID= new JLabel("ID No.");
@@ -123,7 +125,10 @@ panel.add(label2);
     label2.setBounds(200, -25, 500, 100);
     label2.setHorizontalAlignment(JLabel.CENTER);
     label2.setFont(a2);
-
+panel.add(labelSIS);
+    labelSIS.setBounds(30, 70, 500, 100);
+    labelSIS.setHorizontalAlignment(JLabel.LEFT);
+    labelSIS.setFont(SIS);
 
 imageLabel = new JLabel();
 
@@ -134,7 +139,7 @@ panel.add(imageLabel);
         ImageIcon imageIcon = new ImageIcon(imagePathString);
     imageLabel.setIcon(imageIcon);
     Image image = imageIcon.getImage();
-    Image scaledImage = image.getScaledInstance(75, 75, Image.SCALE_SMOOTH); // Change dimensions as needed
+    Image scaledImage = image.getScaledInstance(75, 75, Image.SCALE_SMOOTH);
     imageIcon = new ImageIcon(scaledImage);
     imageLabel.setIcon(imageIcon);
     
@@ -202,7 +207,7 @@ panel.add (txtBal);
     txtBal.setBounds (450,340+ yOffset,120,30);
     txtBal.setHorizontalAlignment (JTextField.LEFT);
 panel.add(txtCity);
-        txtCity.setBounds (130,470+ yOffset,100,30);
+        txtCity.setBounds (130,415+ yOffset,100,30);
 
 //******************************************************RadioButton
 
