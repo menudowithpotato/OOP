@@ -227,6 +227,8 @@ panel.add (RBFemale);
 
     RBMale.addItemListener(this);
     RBFemale.addItemListener(this);
+    RBMale.setEnabled(false);;
+    RBFemale.setEnabled(false);;
 
 //***********************************************************checkbox
     panel.add (CBDiploma);
@@ -347,6 +349,9 @@ panel.add (citylist);
                   txtLast.setEnabled(false);
                   txtAge.setEnabled(false);
                   txtCity.setEnabled(false);
+                  txtTuiFee.setEnabled(false);
+                  txtDownpay.setEnabled(false);
+                  txtBal.setEnabled(false);
                   txtStatHolder.setEnabled(false);
                   txtRDiplomaHolder.setEnabled(false);
                   txtRForm137Holder.setEnabled(false);
@@ -404,6 +409,9 @@ public void clear(){
                txtLast.setText("");
                txtAge.setText("");
                txtCity.setText("");
+               txtTuiFee.setText("");
+               txtDownpay.setText("");
+               txtBal.setText("");
                txtRDiplomaHolder.setText("");
                txtRForm137Holder.setText("");
                txtRTorHolder.setText("");
@@ -435,6 +443,9 @@ public void actionPerformed (ActionEvent e){
         txtLast.setEnabled(true);
         txtAge.setEnabled(true);
         txtCity.setEnabled(true);
+        txtTuiFee.setEnabled(true);
+        txtDownpay.setEnabled(true);
+        txtBal.setEnabled(true);
         txtStatHolder.setEnabled(true);
         txtRDiplomaHolder.setEnabled(true);
         txtRForm137Holder.setEnabled(true);
@@ -445,6 +456,14 @@ public void actionPerformed (ActionEvent e){
         CBDiploma.setEnabled(true);
         CBForm137.setEnabled(true);
         CBTor.setEnabled(true);
+        CBBirth.setSelected(false);
+        CBDiploma.setSelected(false);
+        CBForm137.setSelected(false);
+        CBTor.setSelected(false);
+        RBMale.setEnabled(true);
+        RBFemale.setEnabled(true);
+        RBMale.setSelected(false);
+        RBFemale.setSelected(false);
 
 
 
@@ -454,6 +473,9 @@ public void actionPerformed (ActionEvent e){
         txtLast.setText("");
         txtAge.setText("");
         txtCity.setText("");
+        txtTuiFee.setText("");
+        txtDownpay.setText("");
+        txtBal.setText("");
         txtRDiplomaHolder.setText("");
         txtRForm137Holder.setText("");
         txtRTorHolder.setText("");
@@ -626,6 +648,9 @@ ageChecker==1){
                     txtLast.setEnabled(false);
                     txtAge.setEnabled(false);
                     txtCity.setEnabled(false);
+                    txtTuiFee.setEnabled(false);
+                    txtDownpay.setEnabled(false);
+                    txtBal.setEnabled(false);
                     txtStatHolder.setEnabled(false);
                     txtRDiplomaHolder.setEnabled(false);
                     txtRForm137Holder.setEnabled(false);
@@ -687,6 +712,9 @@ ageChecker==1){
                     txtLast.setEnabled(true);
                     txtAge.setEnabled(true);
                     txtCity.setEnabled(true);
+                    txtTuiFee.setEnabled(true);
+                    txtDownpay.setEnabled(true);
+                    txtBal.setEnabled(true);
                     txtStatHolder.setEnabled(true);
                     txtRDiplomaHolder.setEnabled(true);
                     txtRForm137Holder.setEnabled(true);
@@ -809,6 +837,9 @@ s.getErrorCode() + " " + s.getSQLState());
                     txtLast.setEnabled(true);
                     txtAge.setEnabled(true);
                     txtCity.setEnabled(true);
+                    txtTuiFee.setEnabled(false);
+                    txtDownpay.setEnabled(false);
+                    txtBal.setEnabled(false);
                     txtStatHolder.setEnabled(true);
                     txtRDiplomaHolder.setEnabled(true);
                     txtRForm137Holder.setEnabled(true);
@@ -819,6 +850,8 @@ s.getErrorCode() + " " + s.getSQLState());
                     CBDiploma.setEnabled(true);
                     CBForm137.setEnabled(true);
                     CBTor.setEnabled(true);
+                    RBMale.setEnabled(true);
+                    RBFemale.setEnabled(true);;
 
                             //----------------------------Check------------------
 
@@ -915,6 +948,9 @@ ageChecker==1){
                         txtLast.setEnabled(false);
                         txtAge.setEnabled(false);
                         txtCity.setEnabled(false);
+                        txtTuiFee.setEnabled(false);
+                        txtDownpay.setEnabled(false);
+                        txtBal.setEnabled(false);
                         txtStatHolder.setEnabled(false);
                         txtRDiplomaHolder.setEnabled(false);
                         txtRForm137Holder.setEnabled(false);
@@ -966,6 +1002,9 @@ ageChecker==1){
                         txtLast.setEnabled(false);
                         txtAge.setEnabled(false);
                         txtCity.setEnabled(false);
+                        txtTuiFee.setEnabled(false);
+                        txtDownpay.setEnabled(false);
+                        txtBal.setEnabled(false);
                         txtStatHolder.setEnabled(false);
                         txtRDiplomaHolder.setEnabled(false);
                         txtRForm137Holder.setEnabled(false);
@@ -977,6 +1016,7 @@ ageChecker==1){
                         CBForm137.setEnabled(false);
                         CBTor.setEnabled(false);
                         txtID.requestFocus(true);
+                        
                         clear();
                         st.close();
                     }catch(SQLException s){
@@ -992,6 +1032,7 @@ ageChecker==1){
              save.setEnabled(false);
              search.setEnabled(true);
              New.setEnabled(true);
+             
              clear();
           }
             if(source==exit){
