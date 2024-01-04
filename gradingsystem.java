@@ -233,15 +233,14 @@ class Frame1 extends JFrame implements ActionListener {
                 PreFinal_Grade = Integer.parseInt(txtprefinal.getText());
                 Final_Grade = Integer.parseInt(txtfinal.getText());
 
-                // Compute average
                 Average = (Prelim_Grade + Midterm_Grade + PreFinal_Grade + Final_Grade) / 4;
 
-                // Display the computed average grade
+                
                 JOptionPane.showMessageDialog(this, "Computed Average Grade: " + Average);
             } else if (ae.getActionCommand().equals("Exit")) {
                 System.exit(0);
             }
-            //... (other button actions can be handled here)
+            
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Please enter valid grades in numeric format.");
         } catch (Exception e) {
