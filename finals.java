@@ -22,7 +22,7 @@ ItemListener,ActionListener, ListSelectionListener{
     Font a3 = new Font("Times", Font.PLAIN, 30);
     JLabel   labelstd = new JLabel("Student ID");
     JLabel   labelstdname= new JLabel("Student Name:");
-    JLabel   labelstdcourse= new JLabel("Course");
+    JLabel   labelstdcourse= new JLabel("Course: ");
     JLabel   labelstdsub = new JLabel("Subject:");
     JLabel   labelprelim= new JLabel("Prelim Grade: ");
     Font a4 = new Font("Times", Font.PLAIN, 12);
@@ -41,7 +41,6 @@ ItemListener,ActionListener, ListSelectionListener{
 
     JTextField   txtID=new JTextField ();
     JTextField   txtstdname= new JTextField ();
-    JTextField   txtcourse= new JTextField (0);
     JTextField   txtsubject= new JTextField ();
     JTextField   txtprelim= new JTextField ();
     JTextField   txtmid= new JTextField ();
@@ -77,10 +76,8 @@ ItemListener,ActionListener, ListSelectionListener{
     JComboBox<String> statbox = new JComboBox<>(statchoice);
 
     // Listbox
-    
-
-
-    //Button
+    String[] listcourse = {"BS. INFORMATION TECHNOLOGY", "BS. TECHNOLOGY COMMUNICATION MANAGEMENT", "BS. COMPUTER SCIENCE", "BS. DATA SCIENCE"};
+    JList<String> courselist = new JList<>(listcourse);
 
     JButton    New= new JButton ("New");
     JButton    save= new JButton ("Save");
@@ -99,7 +96,7 @@ ItemListener,ActionListener, ListSelectionListener{
     public finals() {
     
     
-    super ("Student Information System");
+    super ("Basic Grading System");
     setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
     int yOffset = 100;
     panel.setLayout(null);
@@ -141,58 +138,56 @@ panel.add(imageLabel);
     imageLabel.setBounds(130, -60, 200, 200);
 
 panel.add(labelstd );
-    labelstd .setBounds (30,50+ yOffset,120,30);
-// id.setForeground(Color.CYAN);
+    labelstd .setBounds (30,50+ yOffset,210,30);
+
 
 panel.add(labelstdname);
-    labelstdname.setBounds (30,80+ yOffset,120,30);
+    labelstdname.setBounds (30,80+ yOffset,210,30);
 
 panel.add (labelstdcourse)    ;
-    labelstdcourse.setBounds (30,110+ yOffset,120,30);
+    labelstdcourse.setBounds (30,110+ yOffset,210,30);
 
 panel.add (labelstdsub);
-    labelstdsub.setBounds (30,140+ yOffset,120,30);
+    labelstdsub.setBounds (30,140+ yOffset,210,30);
 
 panel.add(labelfin);
-    labelfin.setBounds (30,370+ yOffset,120,30);
+    labelfin.setBounds (30,370+ yOffset,210,30);
 
 panel.add(labelprelim);
-    labelprelim.setBounds (30,280+ yOffset,120,30);
+    labelprelim.setBounds (30,280+ yOffset,210,30);
 panel.add(labelmid);
-    labelmid.setBounds (30,310+ yOffset,120,30);
+    labelmid.setBounds (30,310+ yOffset,210,30);
 panel.add(labelprefin);
-    labelprefin.setBounds (30,340+ yOffset,120,30);
+    labelprefin.setBounds (30,340+ yOffset,210,30);
 panel.add (labelGender);
-    labelGender.setBounds (30,180+ yOffset,120,30);
+    labelGender.setBounds (30,180+ yOffset,210,30);
 
 
 
 panel.add (txtID);
-    txtID.setBounds (120,50+ yOffset,120,30)    ;
+    txtID.setBounds (120,50+ yOffset,210,30)    ;
     txtID.setHorizontalAlignment (JTextField.LEFT);
 
 panel.add (txtstdname);
-    txtstdname.setBounds (120,80+ yOffset,120,30);
+    txtstdname.setBounds (120,80+ yOffset,210,30);
     txtstdname.setHorizontalAlignment (JTextField.LEFT);
 
-panel.add (txtcourse);
-    txtcourse.setBounds (120,110+ yOffset,120,30);
-    txtcourse.setHorizontalAlignment (JTextField.LEFT);
+
 panel.add (txtsubject);
-    txtsubject.setBounds (120,140+ yOffset,120,30);
+    txtsubject.setBounds (120,140+ yOffset,210,30);
     txtsubject.setHorizontalAlignment (JTextField.LEFT);
 
 panel.add (txtprelim);
-    txtprelim.setBounds (135,370+ yOffset,120,30);
+    txtprelim.setBounds (135,370+ yOffset,210,30);
     txtprelim.setHorizontalAlignment (JTextField.LEFT);
 panel.add (txtmid);
-    txtmid.setBounds (135,280+ yOffset,120,30);
+    txtmid.setBounds (135,280+ yOffset,210,30);
     txtmid.setHorizontalAlignment (JTextField.LEFT);
 panel.add (txtprefin);
-    txtprefin.setBounds (135,310+ yOffset,120,30);
+    txtprefin.setBounds (135,310+ yOffset,210,30);
     txtprefin.setHorizontalAlignment (JTextField.LEFT);
 panel.add (txtfinal);
-    txtfinal.setBounds (135,340+ yOffset,120,30);
+    txtfinal.setBounds (135,340+ yOffset,210,30);
     txtfinal.setHorizontalAlignment (JTextField.LEFT);
 
 //******************************************************RadioButton
@@ -215,7 +210,12 @@ panel.add (RBFemale);
     RBFemale.addItemListener(this);
     RBMale.setEnabled(false);;
     RBFemale.setEnabled(false);;
-    
+    DefaultComboBoxModel<String> courselistModel = new DefaultComboBoxModel<>(listcourse);
+               JComboBox<String> courselist = new JComboBox<>(courselistModel);
+           panel.add(courselist);
+               courselist.setBounds(120, 210, 210, 30);
+               courselist.setBackground(Color.gray);
+               courselist.setSelectedIndex(0);
 
     panel.add (New);
         New.setBounds (5,520+ yOffset,80,30);
@@ -236,7 +236,7 @@ panel.add (RBFemale);
 
                   txtID.setEnabled(false);
                   txtstdname.setEnabled(false);
-                  txtcourse.setEnabled(false);
+                  
                   txtsubject.setEnabled(false);
                   txtprelim.setEnabled(false);
                   txtmid.setEnabled(false);
@@ -287,29 +287,7 @@ try{
 
 }
 
-public void clear(){
 
-               txtID.setText("");
-               txtstdname.setText("");
-               txtcourse.setText("");
-               txtsubject.setText("");
-               txtprelim.setText("");
-               txtmid.setText("");
-               txtprefin.setText("");
-               txtfinal.setText("");
-               txtRDiplomaHolder.setText("");
-               txtRForm137Holder.setText("");
-               txtRTorHolder.setText("");
-               txtRBirth.setText("");
-
-               RBHidden.setEnabled(true);
-               CBBirth.setSelected(false);
-               CBDiploma.setSelected(false);
-               CBForm137.setSelected(false);
-               CBTor.setSelected(false);
-               
-
-}
 
 
 public void actionPerformed (ActionEvent e){
@@ -332,7 +310,7 @@ public void actionPerformed (ActionEvent e){
     
             txtID.setEnabled(true);
             txtstdname.setEnabled(true);
-            txtcourse.setEnabled(true);
+            
             txtsubject.setEnabled(true);
             txtprelim.setEnabled(true);
             
@@ -355,7 +333,7 @@ public void actionPerformed (ActionEvent e){
     
             txtID.setText("");
             txtstdname.setText("");
-            txtcourse.setText("");
+        
             txtsubject.setText("");
             txtprelim.setText("");
             txtmid.setText("");
@@ -371,201 +349,7 @@ public void actionPerformed (ActionEvent e){
 
 
 
-if(source == save){
-    String idf=txtID.getText();
-    String ftname=txtstdname.getText();
-        String mdname=txtcourse.getText();
-        String ltname=txtsubject.getText();
-        String gender=txtGenderHolder.getText();
-        String status =txtStatHolder.getText();
-        String agef = txtprelim.getText();
-        String diploma =txtRDiplomaHolder.getText();
-        String form137=txtRForm137Holder.getText();
-        String TOR=txtRTorHolder.getText();
-                    String birth=txtRBirth.getText();
-                if (!status.equals("")&&!gender.equals("")&&!idf.equals("") &&
-!ftname.equals("")&& !mdname.equals("") && !ltname.equals("") &&
-!agef.equals("")){
 
-                New.setEnabled (true);
-                update.setEnabled (false);
-                delete.setEnabled (false);
-                search.setEnabled(true);
-                //----------------------------Check--------------------
-                int id=0;
-                int idChecker=0;
-                int age=0;
-                int ageChecker=0;
-                int checkerFirst=0;
-                int checkerMid=0;
-                int checkerLast=0;
-                try{
-
-                age=Integer.parseInt(txtprelim.getText());
-                if(age==0) {
-                    JOptionPane.showMessageDialog(
-                        null,               // Parent component (or use a specific component)
-                        "Change",           // Message to be displayed
-                        "Age",              // Title of the dialog
-                        JOptionPane.WARNING_MESSAGE  // Type of message (e.g., WARNING_MESSAGE)
-                    );
-                    ageChecker = 1; // This line of code will execute after the dialog is closed
-                    
-                }
-
-                }catch(NumberFormatException nfe){
-                     JOptionPane.showMessageDialog(null,"Age should be Numbers only","Warning",JOptionPane.WARNING_MESSAGE);
-                     age=0;
-                     ageChecker=1;
-                }
-                try{
-                         id=Integer.parseInt(txtID.getText());
-
-                }catch(NumberFormatException nfe){
-                    JOptionPane.showMessageDialog(null,"ID should be Numbers only","Warning",JOptionPane.WARNING_MESSAGE);
-                                 idChecker=1;
-
-                }
-                String checkFirstName=txtstdname.getText();
-                String checkLastName=txtsubject.getText();
-                String checkMidName=txtcourse.getText();
-                if(checkFirstName.matches(".*\\d.*")){
-                    JOptionPane.showMessageDialog(null,"Invalid input in First Name","Warning",JOptionPane.WARNING_MESSAGE);
-                  checkerFirst=1;
-                } else{
-                  checkerFirst=0;
-                }
-                if(checkLastName.matches(".*\\d.*")){
-                 JOptionPane.showMessageDialog(null,"Invalid input in Last Name","Warning",JOptionPane.WARNING_MESSAGE);
-                  checkerLast=1;
-                } else{
-                  checkerLast=0;
-                }
-
-                if(checkMidName.matches(".*\\d.*")){
-                 JOptionPane.showMessageDialog(null,"Invalid input in Mid Name","Warning",JOptionPane.WARNING_MESSAGE);
-                  checkerMid=1;
-                } else{
-                  checkerMid=0;
-                }
-
-
-
-
-                if(txtcourse.getText().length()>1){
-                JOptionPane.showMessageDialog(null,"Set Middle initial to one character only!","Warning",JOptionPane.WARNING_MESSAGE);
-                checkerMid=1;
-
-                  }
-
-                  if(checkerFirst==1||checkerMid==1||checkerLast==1||idChecker==1||
-ageChecker==1){
-
-                  }
-
-                  //----------------------------End of Check--------------------
-
-
-                  else{
-                      String idx = String.valueOf(id);
-
-                  try{
-                    if (!status.equals("")&&!gender.equals("")&&!idx.equals("")
-&& !ftname.equals("")&& !mdname.equals("") && !ltname.equals("") && age!=0) {
-
-                    st= cn.createStatement();
-                    ps=cn.prepareStatement("INSERT INTO Login" +  "(ID,First,MI,Last,Age,Gender,Status,City,Diploma,Form137,TOR,Birth) " + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
-
-                    ps.setString(1,txtID.getText());
-                    ps.setString(2,txtstdname.getText());
-                    ps.setString(3,txtcourse.getText());
-                    ps.setString(4,txtsubject.getText());
-                    ps.setString(5,txtprelim.getText());
-                    ps.setString(6,txtGenderHolder.getText());
-                    ps.setString(7,txtStatHolder.getText());
-                    
-
-                    if(diploma.equals("check")){
-
-                        ps.setString(9,"check");
-                    }
-                    else{
-
-                        ps.setString(9,"null");
-
-                    }
-
-                    if(form137.equals("check")){
-
-                        ps.setString(10,"check");
-                    }
-                    else{
-
-                        ps.setString(10,"null");
-                    }
-
-                    if(TOR.equals("check")){
-
-                        ps.setString(11,"check");
-                    }
-                    else{
-
-                        ps.setString(11,"null");
-                    }
-
-                    if(birth.equals("check")){
-
-                        ps.setString(12,"check");
-                    }
-                    else{
-
-                        ps.setString(12,"null");
-                    }
-
-
-                    ps.executeUpdate();
-                    JOptionPane.showMessageDialog(null,"New account has been successfully added.","Student Information System",JOptionPane.INFORMATION_MESSAGE);
-                    txtID.setEnabled(false);
-                    txtstdname.setEnabled(false);
-                    txtcourse.setEnabled(false);
-                    txtsubject.setEnabled(false);
-                    txtprelim.setEnabled(false);
-                    txtmid.setEnabled(false);
-                    txtprefin.setEnabled(false);
-                    txtfinal.setEnabled(false);
-                    txtStatHolder.setEnabled(false);
-                    txtRDiplomaHolder.setEnabled(false);
-                    txtRForm137Holder.setEnabled(false);
-                    txtRTorHolder.setEnabled(false);
-                    txtRBirth.setEnabled(false);
-                    txtGenderHolder.setEnabled(false);
-                    CBBirth.setEnabled(false);
-                    CBDiploma.setEnabled(false);
-                    CBForm137.setEnabled(false);
-                    CBTor.setEnabled(false);
-                    st.close();
-                    clear();
-                    }
-                        else{
-                    JOptionPane.showMessageDialog(null,"Fill Up the Empty Fields!.","Student Information System",JOptionPane.ERROR_MESSAGE);
-
-                }
-
-
-                }catch(SQLException sqlEx){
-                    sqlEx.printStackTrace();
-                    JOptionPane.showMessageDialog(null,"Unable to save! ID number already taken.","Student Information System",JOptionPane.ERROR_MESSAGE);}
-
-
-
-
-            }
-                }
-                else{
-                    JOptionPane.showMessageDialog(null,"Fill Up the Empty Fields!.","Student Information System",JOptionPane.ERROR_MESSAGE);
-
-                }
-            }
 
             if (source==delete){
                 New.setEnabled (true);
@@ -590,7 +374,7 @@ ageChecker==1){
 
                 txtID.setEnabled(true);
                     txtstdname.setEnabled(true);
-                    txtcourse.setEnabled(true);
+                    
                     txtsubject.setEnabled(true);
                     txtprelim.setEnabled(true);
                     
@@ -613,7 +397,7 @@ ageChecker==1){
 
                 String sUser ="";
                     int tmp= 0;
-                    clear();
+                    
                     sUser = JOptionPane.showInputDialog(null,"Enter Student ID to search.","Student Information System",JOptionPane.QUESTION_MESSAGE);
 
                      if(!sUser.equals("")){
@@ -628,7 +412,7 @@ ageChecker==1){
 
                              txtstdname.setText(rs.getString(2));
 
-                             txtcourse.setText(rs.getString(3));
+                             
 
                              txtsubject.setText(rs.getString(4));
 
@@ -701,162 +485,10 @@ s.getErrorCode() + " " + s.getSQLState());
 
 
             }
-            if(source==update){
-                    txtID.setEnabled(true);
-                    txtstdname.setEnabled(true);
-                    txtcourse.setEnabled(true);
-                    txtsubject.setEnabled(true);
-                    txtprelim.setEnabled(true);
-                    
-                    txtmid.setEnabled(false);
-                    txtprefin.setEnabled(false);
-                    txtfinal.setEnabled(false);
-        
-                    txtRDiplomaHolder.setEnabled(true);
-                    txtRForm137Holder.setEnabled(true);
-                    txtRTorHolder.setEnabled(true);
-                    txtRBirth.setEnabled(true);
-                    txtGenderHolder.setEnabled(true);
-                    CBBirth.setEnabled(true);
-                    CBDiploma.setEnabled(true);
-                    CBForm137.setEnabled(true);
-                    CBTor.setEnabled(true);
-                    RBMale.setEnabled(false);
-                    RBFemale.setEnabled(false);;
-
-                            //----------------------------Check------------------
-
-               int    id=0;
-                int    idChecker=0;
-                int    age=0;
-                int    ageChecker=0;
-                int    checkerFirst=0;
-                int    checkerMid=0;
-                int    checkerLast=0;
-
-                try{
-
-                age=Integer.parseInt(txtprelim.getText());
-                if(age==0){ ageChecker=1;
-                     JOptionPane.showMessageDialog(null,"Change Age","Warning",JOptionPane.WARNING_MESSAGE);
-                }
-                }catch(NumberFormatException nfe){
-                     JOptionPane.showMessageDialog(null,"Age should be Numbers only","Warning",JOptionPane.WARNING_MESSAGE);
-                     ageChecker=1;
-                     age=0;
-                }
-                try{
-                         id=Integer.parseInt(txtID.getText());
-
-                }catch(NumberFormatException nfe){
-                    JOptionPane.showMessageDialog(null,"ID should be Numbers only","Warning",JOptionPane.WARNING_MESSAGE);
-
-                 idChecker=1;
-                }
-                String checkFirstName=txtstdname.getText();
-                String checkLastName=txtsubject.getText();
-                String checkMidName=txtcourse.getText();
-                 if(checkFirstName.matches(".*\\d.*")){
-                    JOptionPane.showMessageDialog(null,"Invalid input in First Name","Warning",JOptionPane.WARNING_MESSAGE);
-                  checkerFirst=1;
-                } else{
-                  checkerFirst=0;
-                }
-                if(checkLastName.matches(".*\\d.*")){
-                 JOptionPane.showMessageDialog(null,"Invalid input in Last Name","Warning",JOptionPane.WARNING_MESSAGE);
-                  checkerLast=1;
-                } else{
-                  checkerLast=0;
-                }
-                if(checkMidName.matches(".*\\d.*")){
-                 JOptionPane.showMessageDialog(null,"Invalid input in Mid Name","Warning",JOptionPane.WARNING_MESSAGE);
-                  checkerMid=1;
-                } else{
-                  checkerMid=0;
-                }
-
-
-
-
-                if(txtcourse.getText().length()>1){
-                JOptionPane.showMessageDialog(null,"Set Middle initial to one character only!","Warning",JOptionPane.WARNING_MESSAGE);
-                    checkerMid=1;
-
-                  }
-                  if(checkerFirst==1||checkerMid==1||checkerLast==1||idChecker==1||
-ageChecker==1){
-
-                  }
+            
                   
 
-                  //----------------------------End of Check--------------------
-
-                  else{
-
-                        String idx = String.valueOf(id);
-                        String ftname=txtstdname.getText();
-                        String mdname=txtcourse.getText();
-                        String ltname=txtsubject.getText();
-                
-                        String gender=txtGenderHolder.getText();
-                        String diploma =txtRDiplomaHolder.getText();
-                        String form137=txtRForm137Holder.getText();
-                        String TOR=txtRTorHolder.getText();
-                        String birth=txtRBirth.getText();
-                    try{
-                if (!gender.equals("")&&!idx.equals("") &&
-!ftname.equals("")&& !mdname.equals("") && !ltname.equals("") && age>0) {
-                    st=cn.createStatement();
-                    PreparedStatement ps = cn.prepareStatement("UPDATE Login SET First = '" + ftname + "',MI = '" + mdname + "',Last= '" + ltname+ "',Age = '"+age+"',Gender='"+gender+"',Status='"+"'',Diploma='"+diploma+"',Form137='"+form137+"',TOR='"+TOR+"',Birth='"+birth+ "'WHERE ID = '" + id
-+ "'");
-                        ps.executeUpdate();
-                        JOptionPane.showMessageDialog(null,"Account has been successfully updated.","Student Information System",JOptionPane.INFORMATION_MESSAGE);
-                        txtID.setEnabled(false);
-                        txtstdname.setEnabled(false);
-                        txtcourse.setEnabled(false);
-                        txtsubject.setEnabled(false);
-                        txtprelim.setEnabled(false);
-
-                        txtmid.setEnabled(false);
-                        txtprefin.setEnabled(false);
-                        txtfinal.setEnabled(false);
-                        txtStatHolder.setEnabled(false);
-                        txtRDiplomaHolder.setEnabled(false);
-                        txtRForm137Holder.setEnabled(false);
-                        txtRTorHolder.setEnabled(false);
-                        txtRBirth.setEnabled(false);
-                        txtGenderHolder.setEnabled(false);
-                        CBBirth.setEnabled(false);
-                        CBDiploma.setEnabled(false);
-                        CBForm137.setEnabled(false);
-                        CBTor.setEnabled(false);
-                        txtID.requestFocus(true);
-                        clear();
-                        st.close();
-                }
-                    else{
-                            JOptionPane.showMessageDialog(null,"Please Fill Up The Empty Fields","Warning",JOptionPane.WARNING_MESSAGE);
-                    }
-                    }catch (SQLException y){
-                    JOptionPane.showMessageDialog(null,"Unable to update!.","Student Information System",JOptionPane.ERROR_MESSAGE);
-                    System.out.println("SQL Error" + y.toString() + " "
-+y.getErrorCode() + " " + y.getSQLState());
-                        if
-(!gender.equals("")&&!idx.equals("") && !ftname.equals("")&&
-!mdname.equals("") && !ltname.equals("") && age!=0) {
-                        }
-                        else{
-
-                       delete.setEnabled(false);
-                       update.setEnabled(false);
-                       save.setEnabled(false);
-                            }
-                        }
-                 }
-
-
-
-            }
+                  
             
          if(source==delete){
             if(!txtID.getText().equalsIgnoreCase("")){
@@ -867,7 +499,7 @@ ageChecker==1){
                         JOptionPane.showMessageDialog(null,"Account has been successfully deleted.","Payroll System: User settings",JOptionPane.INFORMATION_MESSAGE);
                         txtID.setEnabled(false);
                         txtstdname.setEnabled(false);
-                        txtcourse.setEnabled(false);
+                        
                         txtsubject.setEnabled(false);
                         txtprelim.setEnabled(false);
 
@@ -886,7 +518,7 @@ ageChecker==1){
                         CBTor.setEnabled(false);
                         txtID.requestFocus(true);
                         
-                        clear();
+                        
                         st.close();
                     }catch(SQLException s){
                     JOptionPane.showMessageDialog(null,"Unable to delete!.","Student Information System",JOptionPane.ERROR_MESSAGE);
@@ -902,7 +534,7 @@ ageChecker==1){
              search.setEnabled(true);
              New.setEnabled(true);
              
-             clear();
+             
           }
             if(source==exit){
                 System.exit(0);
@@ -970,7 +602,7 @@ ageChecker==1){
             
                         txtID.setText("");
                         txtstdname.setText("");
-                        txtcourse.setText("");
+                    
                         txtsubject.setText("");
                         txtRDiplomaHolder.setText("");
                         txtRForm137Holder.setText("");
