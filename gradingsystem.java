@@ -32,7 +32,6 @@ ItemListener,ActionListener, ListSelectionListener{
     Font a6 = new Font("Times", Font.PLAIN, 12);
     JLabel   labelfin= new JLabel("Final grade:");
     JLabel   labelGender= new JLabel("Gender:");
-    JLabel   labelRequirements = new JLabel ("Requirements:");
     
     //float
     float prelim,midterm,prefinal,finalgrade;
@@ -108,8 +107,7 @@ ItemListener,ActionListener, ListSelectionListener{
 panel.setBackground(Color.WHITE);
 
 //********************************************************JLabel
-panel.add(labelRequirements);
-    labelRequirements.setBounds (280,50+ yOffset,120,30);
+
 panel.add(label);
     label.setBounds(200, -5, 600, 100);
     label.setHorizontalAlignment(JLabel.CENTER);
@@ -218,73 +216,6 @@ panel.add (RBFemale);
     RBMale.setEnabled(false);;
     RBFemale.setEnabled(false);;
     
-//***********************************************************checkbox
-    panel.add (CBDiploma);
-        CBDiploma.setBounds (350,70+ yOffset,120,30);
-        CBDiploma.setBackground(Color.white);
-        CBDiploma.addActionListener(new ActionListener() {
-
-public void actionPerformed(ActionEvent event) {
-    JCheckBox CBDiploma = (JCheckBox)event.getSource();
-    if (CBDiploma.isSelected()) {
-       txtRDiplomaHolder.setText("check");
-    } else {
-        txtRDiplomaHolder.setText("");
-
-    }
-}
-});
-            panel.add (CBForm137);
-                CBForm137.setBounds (350,100+ yOffset,120,30);
-                CBForm137.setBackground(Color.white);
-                CBForm137.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent event) {
-                        JCheckBox CBForm137 = (JCheckBox)event.getSource();
-                        if (CBForm137.isSelected()) {
-                           txtRForm137Holder.setText("check");
-                        } else {
-                            txtRForm137Holder.setText("");
-
-                          }
-                      }
-               });
-
-            panel.add (CBTor);
-                CBTor.setBounds (350,130+ yOffset,190,30);
-                CBTor.setBackground(Color.white);
-                CBTor.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent event) {
-                JCheckBox CBTor = (JCheckBox)event.getSource();
-                if (CBTor.isSelected()) {
-                   txtRTorHolder.setText("check");
-                } else {
-                    txtRTorHolder.setText("");
-
-               }
-               }
-      });
-            panel.add (CBBirth);
-                CBBirth.setBounds (350,160+ yOffset,120,30);
-                CBBirth.setBackground(Color.white);
-                CBBirth.addActionListener(new ActionListener(){
-
-                   public void actionPerformed(ActionEvent event) {
-                      JCheckBox CBBirth = (JCheckBox)event.getSource();
-                      if (CBBirth.isSelected()) {
-                         txtRBirth.setText("check");
-                      } else {
-                          txtRBirth.setText("");
-
-                      }
-               }
-    });
-
-
-
-    
-
-    //Button
 
     panel.add (New);
         New.setBounds (5,520+ yOffset,80,30);
@@ -321,9 +252,6 @@ public void actionPerformed(ActionEvent event) {
                   CBDiploma.setEnabled(false);
                   CBForm137.setEnabled(false);
                   CBTor.setEnabled(false);
-
-
-
  New.addActionListener (this);
  save.addActionListener (this);
  save.setEnabled(false);
@@ -1061,11 +989,7 @@ ageChecker==1){
                 }
             });
             
-            
-
-            
-            
-            
+        
 }
     
 
