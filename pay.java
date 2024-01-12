@@ -1,11 +1,10 @@
 
-
 /*******************************************************/
-/* Developed By : J */
-/* Mobile : */
-/* Date : */
-/* Address : */
-/* E-mail : */
+/* Developed By : Joshua R Galon */
+/* Mobile : 09362594965 */
+/* Date : 12/3/24 */
+/* Address : Barra, Opol*/
+/* E-mail : joshuagalon28@gmail.com */
 /*******************************************************/
 
 import javax.swing.*;
@@ -14,7 +13,7 @@ import java.awt.event.*;
 import java.sql.*;
 
 class Frame1 extends JFrame implements ActionListener {
-    String imagePathString = "Images/logo.png";
+    String imagePathString = "logo.png";
     // initializa the lbl with caption name is employee information.
     JLabel lbl = new JLabel("Simple Payroll System Version 2.0");
     Font f = new Font("Times", Font.BOLD, 30);
@@ -47,7 +46,7 @@ class Frame1 extends JFrame implements ActionListener {
 
     Frame1() {
 
-        super("Employees Information ");
+        super("Simple Payroll System Version 2.0");
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
                 System.exit(0);
